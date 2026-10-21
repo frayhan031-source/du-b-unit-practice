@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123c32">
+<title>DU B Unit Practice</title>
+<style>
+:root{--bg:#f4f7f5;--card:#fff;--text:#17231f;--muted:#65746e;--line:#dce5e0;--green:#176b50;--green2:#e4f3eb;--red:#b42318;--amber:#9a6700;--shadow:0 8px 28px #163b2b0c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Bengali","Nirmala UI",sans-serif;line-height:1.55}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700}
+.top{background:#123c32;color:#fff;padding:22px 18px 25px}.wrap{max-width:860px;margin:auto}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;background:#e0f4e8;color:#123c32;border-radius:14px;display:grid;place-items:center;font-weight:900;font-size:20px}.top h1{font-size:22px;margin:0}.top p{margin:4px 0 0;color:#d4e8df;font-size:14px}
+main{max-width:860px;margin:18px auto;padding:0 14px 40px}.tabs{display:flex;gap:8px;overflow:auto;padding:4px 0 14px}.tab{background:transparent;color:var(--muted);white-space:nowrap}.tab.active{background:var(--green2);color:var(--green)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}h2{font-size:19px;margin:0 0 8px}h3{font-size:16px;margin:0 0 8px}.muted{color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.stat{background:#f5f8f6;border-radius:13px;padding:12px}.stat strong{display:block;font-size:21px;color:var(--green)}label{display:block;font-weight:700;font-size:14px;margin:12px 0 6px}select,input,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--text)}.primary{background:var(--green);color:#fff}.secondary{background:var(--green2);color:var(--green)}.plain{background:#f1f4f2;color:var(--text)}.danger{background:#fff0ef;color:var(--red)}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.hidden{display:none!important}.progress{height:7px;background:#e6ece8;border-radius:99px;overflow:hidden;margin:12px 0}.progress div{height:100%;background:var(--green);width:0;transition:width .2s}.qtop{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--muted);font-size:13px}.question{font-size:20px;font-weight:750;margin:18px 0}.option{display:flex;align-items:flex-start;gap:10px;text-align:left;width:100%;background:#fff;border:1px solid var(--line);margin:8px 0;padding:13px;border-radius:13px;font-weight:500}.option .letter{width:27px;height:27px;border-radius:8px;background:#eff4f0;display:grid;place-items:center;flex-shrink:0;font-weight:800}.option.selected{border-color:var(--green);background:#f0faf4}.option.correct{border-color:#218653;background:#e8f7ee}.option.wrong{border-color:#cf3e35;background:#fff0ef}.qnav{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.qnum{width:38px;height:38px;padding:0;background:#f0f3f1;color:#42524b}.qnum.done{background:#dff2e6;color:#176b50}.qnum.flag{outline:2px solid #d69e00}.qnum.current{background:#176b50;color:white}.notice{padding:12px;border-radius:12px;background:#fff8df;color:#745100;font-size:14px}.result-score{font-size:42px;font-weight:850;color:var(--green)}.item{padding:13px 0;border-top:1px solid var(--line)}.item:first-child{border-top:0}.small{font-size:12px}.footer{color:var(--muted);text-align:center;font-size:12px;padding:16px}
+@media(max-width:560px){.grid{grid-template-columns:1fr 1fr}.top h1{font-size:20px}.card{padding:15px}.question{font-size:18px}.qnum{width:35px;height:35px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap brand"><div class="logo">DU</div><div><h1>DU B Unit Practice</h1><p>ভর্তি প্রস্তুতি • অনুশীলন • নিজের অগ্রগতি</p></div></div></header>
+<main>
+<div class="tabs">
+<button class="tab active" data-tab="home">হোম</button><button class="tab" data-tab="exam">পরীক্ষা</button><button class="tab" data-tab="upload">PDF/ছবি থেকে প্রশ্ন</button><button class="tab" data-tab="bank">নিজের প্রশ্ন যোগ</button><button class="tab" data-tab="history">ফলাফল ও রিভিশন</button>
+</div>
+<section id="home" class="panel">
+<div class="card"><h2>আজকের প্রস্তুতি শুরু করো</h2><p class="muted">বাংলা, English অথবা সাধারণ জ্ঞান বেছে নিয়ে সময় ধরে MCQ পরীক্ষা দাও। এই সংস্করণটি একক HTML ফাইল—ইনস্টল বা অ্যাকাউন্ট ছাড়াই চালানো যায়।</p>
+<div class="grid"><div class="stat"><strong id="attemptCount">0</strong><span class="muted">মোট পরীক্ষা</span></div><div class="stat"><strong id="bestScore">—</strong><span class="muted">সেরা স্কোর</span></div><div class="stat"><strong id="bankCount">0</strong><span class="muted">প্রশ্নের সংখ্যা</span></div></div>
+<label>বিষয়</label><select id="subject"><option value="all">সব বিষয়</option><option value="বাংলা">বাংলা</option><option value="English">English</option><option value="সাধারণ জ্ঞান">সাধারণ জ্ঞান</option></select>
+<label>প্রশ্নের সংখ্যা</label><select id="count"><option>5</option><option selected>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option value="all">সব উপলভ্য প্রশ্ন</option></select>
+<label>সময়</label><select id="minutes"><option value="5">৫ মিনিট</option><option value="10">১০ মিনিট</option><option value="15" selected>১৫ মিনিট</option><option value="20">২০ মিনিট</option><option value="30">৩০ মিনিট</option><option value="0">সময় ছাড়া</option></select>
+<div class="row" style="margin-top:15px"><button class="primary" id="startBtn">পরীক্ষা শুরু করো →</button><button class="secondary" id="reviewBtn">রিভিশন পরীক্ষা</button></div>
+<p class="muted small">নমুনা প্রশ্নগুলো শুধু অ্যাপের কাজ বোঝানোর জন্য দেওয়া। নিজের সিলেবাস/PDF থেকে প্রশ্ন যোগ করলে সেগুলোও পরীক্ষায় আসবে।</p>
+</div>
+<div class="card"><h3>কীভাবে ব্যবহার করবে?</h3><p class="muted">১. পরীক্ষা শুরু করো। ২. উত্তর বেছে নাও ও প্রয়োজনে প্রশ্ন চিহ্নিত করো। ৩. জমা দিলে স্কোর ও ব্যাখ্যা দেখো। ৪. নিজের প্রশ্ন যোগ করে ব্যক্তিগত প্রশ্নব্যাংক তৈরি করো। ফলাফল এই ডিভাইসের ব্রাউজারে সংরক্ষিত হবে।</p></div>
+</section>
+<section id="exam" class="panel hidden">
+<div class="card" id="examCard"><div class="qtop"><span id="examSubject">অনুশীলন পরীক্ষা</span><strong id="timer">সময়: ১৫:০০</strong></div><div class="progress"><div id="progressFill"></div></div><div class="qtop"><span id="qCount">প্রশ্ন ১ / ১০</span><span id="answeredCount">উত্তর: ০</span></div><div id="questionText" class="question"></div><div id="options"></div><div class="row" style="margin-top:15px"><button id="prevBtn" class="plain">← আগের</button><button id="flagBtn" class="secondary">⚑ পরে দেখব</button><button id="nextBtn" class="primary">পরের →</button></div><h3 style="margin-top:20px">প্রশ্ন নেভিগেশন</h3><div id="qnav" class="qnav"></div><button id="submitBtn" class="primary" style="width:100%">পরীক্ষা জমা দাও</button><p class="muted small">সময় শেষ হলে পরীক্ষা স্বয়ংক্রিয়ভাবে জমা হবে।</p></div>
+<div class="card hidden" id="resultCard"></div>
+</section>
+<section id="upload" class="panel hidden">
+<div class="card"><h2>PDF বা ছবি থেকে প্রশ্ন তৈরি</h2>
+<p class="muted">বইয়ের PDF অথবা পৃষ্ঠার ছবি নির্বাচন করো। এই সংস্করণে ব্রাউজারের OCR/টেক্সট এক্সট্রাকশন দিয়ে লেখা বের করে সেখান থেকে অনুশীলনী প্রশ্নের খসড়া তৈরি হবে। স্ক্যান করা PDF/ছবির জন্য ইন্টারনেট প্রয়োজন হতে পারে।</p>
+<label>বিষয় নির্বাচন</label><select id="uploadSubject"><option>বাংলা</option><option>English</option><option>সাধারণ জ্ঞান</option></select>
+<label>PDF বা পৃষ্ঠার ছবি নির্বাচন করো</label><input id="sourceFiles" type="file" accept=".pdf,image/*" multiple>
+<p class="muted small">PDF ও JPG/PNG/WebP ছবি সমর্থিত। বড় PDF হলে প্রথমে কয়েকটি পৃষ্ঠা দিয়ে পরীক্ষা করো।</p>
+<div class="row"><button id="extractBtn" class="primary">লেখা বের করো</button><button id="clearExtract" class="plain">মুছে ফেলো</button></div>
+<div id="extractStatus" class="muted" style="margin-top:10px">এখনো কোনো ফাইল নির্বাচন করা হয়নি।</div>
+<label>বের করা লেখা (প্রয়োজনে সংশোধন করো)</label><textarea id="extractedText" rows="9" placeholder="PDF/ছবি থেকে পাওয়া লেখা এখানে দেখা যাবে…"></textarea>
+<div class="row" style="margin-top:12px"><button id="makeDrafts" class="primary">প্রশ্নের খসড়া তৈরি</button><button id="saveDrafts" class="secondary">খসড়া প্রশ্নব্যাংকে যোগ</button></div>
+<div id="draftStatus" class="muted" style="margin-top:10px"></div><div id="draftList"></div>
+<div class="notice" style="margin-top:12px">গুরুত্বপূর্ণ: এটি AI-ভিত্তিক প্রশ্ন তৈরি নয়। লেখা থেকে স্বয়ংক্রিয়ভাবে তৈরি খসড়ায় ভুল থাকতে পারে—প্রশ্ন, অপশন ও সঠিক উত্তর যাচাই করে তারপর প্রশ্নব্যাংকে যোগ করবে। স্ক্যান/OCR সুবিধার জন্য প্রথমবার ইন্টারনেট প্রয়োজন হতে পারে।</div>
+</div>
+</section>
+<section id="bank" class="panel hidden">
+<div class="card"><h2>নিজের MCQ যোগ করো</h2><p class="muted">তোমার বই/PDF থেকে প্রশ্ন ও চারটি অপশন লিখে সঠিক উত্তর নির্বাচন করো। প্রশ্নগুলো এই ডিভাইসে সংরক্ষিত থাকবে।</p>
+<label>বিষয়</label><select id="newSubject"><option>বাংলা</option><option>English</option><option>সাধারণ জ্ঞান</option></select>
+<label>প্রশ্ন</label><textarea id="newQuestion" rows="2" placeholder="প্রশ্ন লিখো…"></textarea>
+<label>অপশন ক</label><input id="op0" placeholder="প্রথম অপশন"><label>অপশন খ</label><input id="op1" placeholder="দ্বিতীয় অপশন"><label>অপশন গ</label><input id="op2" placeholder="তৃতীয় অপশন"><label>অপশন ঘ</label><input id="op3" placeholder="চতুর্থ অপশন">
+<label>সঠিক উত্তর</label><select id="correct"><option value="0">ক</option><option value="1">খ</option><option value="2">গ</option><option value="3">ঘ</option></select>
+<label>ব্যাখ্যা (ঐচ্ছিক)</label><textarea id="explanation" rows="2" placeholder="সঠিক উত্তরের ব্যাখ্যা…"></textarea>
+<div class="row" style="margin-top:14px"><button id="addQuestion" class="primary">প্রশ্ন সংরক্ষণ করো</button><button id="exportBtn" class="secondary">প্রশ্নব্যাংক Export</button></div>
+<label>ব্যাকআপ থেকে প্রশ্ন Import (JSON)</label><input type="file" id="importFile" accept=".json,application/json">
+<div id="bankMessage" class="muted"></div></div>
+<div class="card"><h3>তোমার যোগ করা প্রশ্ন</h3><div id="customList" class="muted">এখনো কোনো প্রশ্ন যোগ করা হয়নি।</div></div>
+</section>
+<section id="history" class="panel hidden"><div class="card"><h2>পরীক্ষার ইতিহাস</h2><p class="muted">শেষ পাঁচটি পরীক্ষার প্রশ্ন মিলিয়ে রিভিশন পরীক্ষা তৈরি করা যায়।</p><div id="historyList"></div><button id="clearHistory" class="danger">ইতিহাস মুছে ফেলো</button></div></section>
+<div class="footer">DU B Unit Practice • ব্যক্তিগত অনুশীলন টুল • ফলাফল এই ব্রাউজারেই থাকে</div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script>
+if(window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+const seed=[
+{subject:"বাংলা",q:"‘অগ্নি’ শব্দের সমার্থক কোনটি?",o:["অনল","অনিল","অম্বর","অচল"],a:0,e:"অনল শব্দের অর্থ আগুন বা অগ্নি."},
+{subject:"বাংলা",q:"‘যে উপকারীর উপকার স্বীকার করে’—এক কথায় কী?",o:["কৃতঘ্ন","কৃতজ্ঞ","পরোপকারী","উদার"],a:1,e:"উপকারীর উপকার স্বীকার করে যে, সে কৃতজ্ঞ."},
+{subject:"বাংলা",q:"‘আকাশকুসুম’ বাগধারার অর্থ কী?",o:["সহজ কাজ","অলীক কল্পনা","সুন্দর ফুল","বিরাট আকাশ"],a:1,e:"আকাশকুসুম অর্থ অবাস্তব বা অলীক কল্পনা."},
+{subject:"বাংলা",q:"‘সৌন্দর্য’ কোন ধরনের পদ?",o:["বিশেষ্য","বিশেষণ","সর্বনাম","অব্যয়"],a:0,e:"সৌন্দর্য ভাববাচক বিশেষ্য পদ."},
+{subject:"বাংলা",q:"‘অল্প বিদ্যা ভয়ংকরী’—এটি কী?",o:["প্রবাদ","উপমা","সমাস","কারক"],a:0,e:"এটি একটি প্রচলিত প্রবাদ."},
+{subject:"English",q:"Choose the synonym of “Abundant”.",o:["Scarce","Plentiful","Tiny","Weak"],a:1,e:"Abundant means plentiful or available in large quantities."},
+{subject:"English",q:"Choose the correct sentence.",o:["He go to school.","He goes to school.","He going school.","He gone to school."],a:1,e:"With he/she/it in the simple present, use goes."},
+{subject:"English",q:"The antonym of “Ancient” is—",o:["Old","Antique","Modern","Historic"],a:2,e:"Modern is the opposite of ancient."},
+{subject:"English",q:"Choose the correct spelling.",o:["Accomodation","Accommodation","Acommodation","Accommudation"],a:1,e:"The correct spelling is accommodation."},
+{subject:"English",q:"What is the noun form of “Decide”?",o:["Decisive","Decision","Decidingly","Decided"],a:1,e:"Decision is the noun form of decide."},
+{subject:"সাধারণ জ্ঞান",q:"বাংলাদেশের জাতীয় সংসদ ভবনের স্থপতি কে?",o:["এফ. আর. খান","লুই আই কান","মাজহারুল ইসলাম","ল্য করবুজিয়ে"],a:1,e:"জাতীয় সংসদ ভবনের নকশা করেন Louis I. Kahn."},
+{subject:"সাধারণ জ্ঞান",q:"বাংলাদেশের স্বাধীনতা দিবস কোন তারিখে?",o:["২১ ফেব্রুয়ারি","১৬ ডিসেম্বর","২৬ মার্চ","৭ মার্চ"],a:2,e:"বাংলাদেশের স্বাধীনতা দিবস ২৬ মার্চ."},
+{subject:"সাধারণ জ্ঞান",q:"জাতিসংঘ প্রতিষ্ঠিত হয় কত সালে?",o:["১৯১৯","১৯৪৫","১৯৪৭","১৯৫২"],a:1,e:"জাতিসংঘ প্রতিষ্ঠিত হয় ১৯৪৫ সালে."},
+{subject:"সাধারণ জ্ঞান",q:"বাংলাদেশের জাতীয় ফুল কোনটি?",o:["গোলাপ","শাপলা","জুঁই","গাঁদা"],a:1,e:"বাংলাদেশের জাতীয় ফুল শাপলা."},
+{subject:"সাধারণ জ্ঞান",q:"সার্কের সদর দপ্তর কোথায়?",o:["ঢাকা","দিল্লি","কাঠমান্ডু","কলম্বো"],a:2,e:"সার্কের সদর দপ্তর নেপালের কাঠমান্ডুতে."}
+];
+const KEY="duPracticeStandaloneV1";
+let data=load(),questions=[],answers=[],flags=[],idx=0,seconds=0,timerId=null,finished=false;
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{custom:[],history:[]}}catch(e){return{custom:[],history:[]}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(data));updateStats()}
+function allQuestions(){return [...seed,...data.custom]}
+function bn(n){return String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d])}
+function el(id){return document.getElementById(id)}
+function showTab(name){document.querySelectorAll(".panel").forEach(x=>x.classList.add("hidden"));el(name).classList.remove("hidden");document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.tab===name));if(name==="history")renderHistory();if(name==="bank")renderCustom()}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+function updateStats(){el("attemptCount").textContent=bn(data.history.length);let best=data.history.length?Math.max(...data.history.map(h=>h.score+"/"+h.total).map(x=>{let a=x.split("/");return Math.round(+a[0]/+a[1]*100)}))+"%":"—";el("bestScore").textContent=best;el("bankCount").textContent=bn(allQuestions().length)}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function startExam(revision=false){
+ clearInterval(timerId);finished=false;let pool=allQuestions();
+ if(revision){let ids=data.history.slice(-5).flatMap(h=>h.questions||[]);let map=new Map();[...pool,...ids].forEach(q=>{if(q&&q.q)map.set(q.q,q)});pool=[...map.values()]}
+ else {let sub=el("subject").value;if(sub!=="all")pool=pool.filter(q=>q.subject===sub)}
+ if(!pool.length){alert("প্রশ্ন পাওয়া যায়নি। আগে নিজের প্রশ্ন যোগ করো।");return}
+ let n=revision?pool.length:(el("count").value==="all"?pool.length:+el("count").value);
+ questions=shuffle(pool).slice(0,n);answers=Array(questions.length).fill(null);flags=Array(questions.length).fill(false);idx=0;seconds=+el("minutes").value*60;
+ if(revision&&seconds===0)seconds=questions.length*60;
+ el("resultCard").classList.add("hidden");el("examCard").classList.remove("hidden");el("examSubject").textContent=revision?"রিভিশন পরীক্ষা":(el("subject").value==="all"?"সব বিষয়":el("subject").value);showTab("exam");renderQ();
+ if(seconds>0){timerId=setInterval(()=>{seconds--;el("timer").textContent="সময়: "+fmt(seconds);if(seconds<=0){clearInterval(timerId);submitExam(true)}},1000)}else el("timer").textContent="সময় ছাড়া";
+}
+function fmt(s){return bn(Math.floor(s/60)).padStart(2,"০")+":"+bn(s%60).padStart(2,"০")}
+function renderQ(){
+ if(!questions.length)return;let q=questions[idx];el("questionText").textContent=q.q;el("qCount").textContent=`প্রশ্ন ${bn(idx+1)} / ${bn(questions.length)}`;el("answeredCount").textContent=`উত্তর: ${bn(answers.filter(a=>a!==null).length)}`;el("progressFill").style.width=((idx+1)/questions.length*100)+"%";
+ el("options").innerHTML="";["ক","খ","গ","ঘ"].forEach((letter,i)=>{let b=document.createElement("button");b.className="option"+(answers[idx]===i?" selected":"");b.innerHTML=`<span class="letter">${letter}</span><span></span>`;b.querySelector("span:last-child").textContent=q.o[i];b.onclick=()=>{answers[idx]=i;renderQ()};el("options").appendChild(b)});
+ el("prevBtn").disabled=idx===0;el("nextBtn").textContent=idx===questions.length-1?"শেষ প্রশ্ন":"পরের →";el("flagBtn").textContent=flags[idx]?"⚑ চিহ্ন সরাও":"⚑ পরে দেখব";
+ el("qnav").innerHTML="";questions.forEach((q,i)=>{let b=document.createElement("button");b.className="qnum"+(answers[i]!==null?" done":"")+(flags[i]?" flag":"")+(idx===i?" current":"");b.textContent=bn(i+1);b.onclick=()=>{idx=i;renderQ()};el("qnav").appendChild(b)})
+}
+el("startBtn").onclick=()=>startExam(false);el("reviewBtn").onclick=()=>{if(data.history.length<1){alert("রিভিশনের জন্য আগে অন্তত একটি পরীক্ষা দাও।");return}startExam(true)};
+el("prevBtn").onclick=()=>{if(idx>0){idx--;renderQ()}};el("nextBtn").onclick=()=>{if(idx<questions.length-1){idx++;renderQ()}else submitExam(false)};el("flagBtn").onclick=()=>{flags[idx]=!flags[idx];renderQ()};el("submitBtn").onclick=()=>submitExam(false);
+function submitExam(auto){if(finished||!questions.length)return;finished=true;clearInterval(timerId);let score=0;questions.forEach((q,i)=>{if(answers[i]===q.a)score++});let record={date:new Date().toLocaleString(),score,total:questions.length,questions:questions.map((q,i)=>({...q,userAnswer:answers[i]}))};data.history.push(record);data.history=data.history.slice(-30);save();el("examCard").classList.add("hidden");el("resultCard").classList.remove("hidden");
+ let pct=Math.round(score/questions.length*100);el("resultCard").innerHTML=`<h2>${auto?"সময় শেষ! ":""}পরীক্ষা সম্পন্ন</h2><div class="result-score">${bn(score)} / ${bn(questions.length)}</div><p class="muted">সঠিক উত্তর ${bn(pct)}% • ${pct>=80?"দারুণ! এভাবেই চালিয়ে যাও।":pct>=50?"ভালো চেষ্টা—ভুলগুলো রিভিশন করো।":"ভুল উত্তরগুলো দেখে আবার অনুশীলন করো।"}</p><div class="progress"><div style="width:${pct}%"></div></div><h3>উত্তরের বিশ্লেষণ</h3><div id="reviewAnswers"></div><button class="primary" id="againBtn" style="width:100%;margin-top:15px">আরেকটি পরীক্ষা দাও</button>`;
+ let out=el("reviewAnswers");questions.forEach((q,i)=>{let d=document.createElement("div");d.className="item";d.innerHTML=`<strong>${bn(i+1)}. ${q.q}</strong><p style="margin:6px 0;color:${answers[i]===q.a?'#176b50':'#b42318'}">তোমার উত্তর: ${answers[i]===null?"দেওয়া হয়নি":["ক","খ","গ","ঘ"][answers[i]]} • সঠিক উত্তর: ${["ক","খ","গ","ঘ"][q.a]}</p><p class="muted">${q.o[q.a]}${q.e?" — "+q.e:""}</p>`;out.appendChild(d)});el("againBtn").onclick=()=>{showTab("home");startExam(false)};renderHistory()
+}
+el("addQuestion").onclick=()=>{let q=el("newQuestion").value.trim(),o=[0,1,2,3].map(i=>el("op"+i).value.trim());if(!q||o.some(x=>!x)){el("bankMessage").textContent="প্রশ্ন ও চারটি অপশন পূরণ করো।";return}data.custom.push({subject:el("newSubject").value,q,o,a:+el("correct").value,e:el("explanation").value.trim()});save();el("newQuestion").value="";[0,1,2,3].forEach(i=>el("op"+i).value="");el("explanation").value="";el("bankMessage").textContent="প্রশ্ন সংরক্ষণ হয়েছে।";renderCustom()};
+function renderCustom(){let c=el("customList");c.innerHTML="";if(!data.custom.length){c.textContent="এখনো কোনো প্রশ্ন যোগ করা হয়নি।";return}data.custom.forEach((q,i)=>{let d=document.createElement("div");d.className="item";d.innerHTML=`<strong>${bn(i+1)}. ${q.q}</strong><p class="muted">${q.subject}</p><button class="danger">মুছে ফেলো</button>`;d.querySelector("button").onclick=()=>{data.custom.splice(i,1);save();renderCustom()};c.appendChild(d)})}
+el("exportBtn").onclick=()=>{let blob=new Blob([JSON.stringify(data.custom,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="du-question-bank.json";a.click();URL.revokeObjectURL(a.href)};
+el("importFile").onchange=async ev=>{let f=ev.target.files[0];if(!f)return;try{let arr=JSON.parse(await f.text());if(!Array.isArray(arr))throw 0;data.custom.push(...arr.filter(q=>q.q&&Array.isArray(q.o)&&q.o.length===4&&Number.isInteger(q.a)));save();renderCustom();el("bankMessage").textContent="প্রশ্ন Import হয়েছে।"}catch(e){el("bankMessage").textContent="ফাইলটি সঠিক প্রশ্নব্যাংক JSON নয়।"}};
+function renderHistory(){let c=el("historyList");c.innerHTML="";if(!data.history.length){c.textContent="এখনো কোনো পরীক্ষা দেওয়া হয়নি।";return}data.history.slice().reverse().forEach(h=>{let d=document.createElement("div");d.className="item";d.innerHTML=`<strong>${bn(h.score)} / ${bn(h.total)} নম্বর</strong><div class="muted">${h.date}</div>`;c.appendChild(d)})}
+el("clearHistory").onclick=()=>{if(confirm("সব পরীক্ষার ইতিহাস মুছে ফেলবে?")){data.history=[];save();renderHistory()}}
+
+let generatedDrafts=[];
+el("clearExtract").onclick=()=>{el("sourceFiles").value="";el("extractedText").value="";el("extractStatus").textContent="ফাইল ও লেখা মুছে ফেলা হয়েছে।";el("draftList").innerHTML="";generatedDrafts=[];};
+el("extractBtn").onclick=async()=>{
+ const files=[...el("sourceFiles").files];if(!files.length){el("extractStatus").textContent="আগে একটি PDF বা ছবি নির্বাচন করো।";return}
+ const box=el("extractStatus");box.textContent="ফাইল পড়া হচ্ছে…";let chunks=[];
+ try{
+  for(let fi=0;fi<files.length;fi++){
+   const f=files[fi];box.textContent=`${fi+1}/${files.length}: ${f.name} পড়া হচ্ছে…`;
+   if(f.type==="application/pdf"||f.name.toLowerCase().endsWith(".pdf")){
+    if(!window.pdfjsLib)throw new Error("PDF reader লোড হয়নি। ইন্টারনেট সংযোগ পরীক্ষা করে পেজ রিফ্রেশ করো।");
+    const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise;
+    for(let n=1;n<=pdf.numPages;n++){
+     box.textContent=`${f.name}: পৃষ্ঠা ${n}/${pdf.numPages} পড়া হচ্ছে…`;
+     const page=await pdf.getPage(n);const content=await page.getTextContent();let text=content.items.map(x=>x.str).join(" ");
+     if(text.trim().length<25){
+      if(!window.Tesseract)throw new Error("স্ক্যান করা PDF-এর OCR লাইব্রেরি পাওয়া যায়নি।");
+      const vp=page.getViewport({scale:1.5}),canvas=document.createElement("canvas");canvas.width=vp.width;canvas.height=vp.height;await page.render({canvasContext:canvas.getContext("2d"),viewport:vp}).promise;
+      const res=await Tesseract.recognize(canvas,"ben+eng",{logger:m=>{if(m.status==="recognizing text")box.textContent=`OCR পৃষ্ঠা ${n}/${pdf.numPages}: ${Math.round((m.progress||0)*100)}%`}});text=res.data.text;canvas.width=1;canvas.height=1;
+     }
+     chunks.push(`\\n[${f.name} — পৃষ্ঠা ${n}]\\n${text}`);
+    }
+   }else if(f.type.startsWith("image/")){
+    if(!window.Tesseract)throw new Error("OCR লাইব্রেরি লোড হয়নি। ইন্টারনেট সংযোগ পরীক্ষা করো।");
+    const res=await Tesseract.recognize(f,"ben+eng",{logger:m=>{if(m.status==="recognizing text")box.textContent=`${f.name}: লেখা শনাক্ত হচ্ছে ${Math.round((m.progress||0)*100)}%`}});chunks.push(`\\n[${f.name}]\\n${res.data.text}`);
+   }
+  }
+  el("extractedText").value=chunks.join("\\n");box.textContent=`সম্পন্ন! ${chunks.length}টি পৃষ্ঠা/ছবি থেকে লেখা নেওয়া হয়েছে। লেখা দেখে নাও, তারপর “প্রশ্নের খসড়া তৈরি” চাপো।`;
+ }catch(e){box.textContent="সমস্যা হয়েছে: "+e.message}
+};
+function buildDrafts(text){
+ const clean=text.replace(/\r/g,"").split(/\n|(?<=[।.!?])\s+/).map(s=>s.trim()).filter(s=>s.length>=35&&s.length<=260);
+ let result=[],seen=new Set();const words=[...new Set((text.match(/[ঀ-৿A-Za-z][ঀ-৿A-Za-z\-]{2,}/g)||[]).filter(w=>w.length>=3))];
+ for(const sentence of clean){
+  if(result.length>=25)break;
+  const candidates=[...sentence.matchAll(/[ঀ-৿A-Za-z][ঀ-৿A-Za-z\-]{2,}/g)].map(m=>m[0]).filter(w=>w.length>=3&&!/^(এবং|কিন্তু|তবে|যেখানে|যেমন|হয়েছে|হয়|ছিল|জন্য|থেকে|একটি|তিনি|তার|the|and|for|with|that|this|from|were|was|are|is)$/i.test(w));
+  if(candidates.length<3)continue;
+  const answer=candidates.sort((a,b)=>b.length-a.length)[0];if(seen.has(sentence)||!sentence.includes(answer))continue;seen.add(sentence);
+  const opts=[answer];for(const w of shuffle(words)){if(w.toLowerCase()!==answer.toLowerCase()&&!opts.some(x=>x.toLowerCase()===w.toLowerCase()))opts.push(w);if(opts.length===4)break}
+  if(opts.length<4)continue;
+  const shuffled=shuffle(opts);result.push({subject:el("uploadSubject").value,q:`নিচের বাক্য/তথ্য অনুযায়ী শূন্যস্থানে কোন শব্দটি বসবে?\\n${sentence.replace(answer,"________")}`,o:shuffled,a:shuffled.indexOf(answer),e:"উৎসের বাক্য: "+sentence});
+ }
+ return result;
+}
+el("makeDrafts").onclick=()=>{const t=el("extractedText").value.trim();if(t.length<100){el("draftStatus").textContent="আরও লেখা বের করো বা অন্তত কয়েকটি বাক্য পেস্ট করো।";return}generatedDrafts=buildDrafts(t);const c=el("draftList");c.innerHTML="";el("draftStatus").textContent=`${generatedDrafts.length}টি খসড়া তৈরি হয়েছে। প্রতিটি প্রশ্ন যাচাই করো।`;generatedDrafts.forEach((q,i)=>{const d=document.createElement("div");d.className="item";d.innerHTML=`<strong>${bn(i+1)}. ${q.q.replace(/\n/g,"<br>")}</strong><p class="muted">ক) ${q.o[0]} · খ) ${q.o[1]} · গ) ${q.o[2]} · ঘ) ${q.o[3]}</p><p class="small">সম্ভাব্য উত্তর: ${["ক","খ","গ","ঘ"][q.a]}</p>`;c.appendChild(d)})};
+el("saveDrafts").onclick=()=>{if(!generatedDrafts.length){el("draftStatus").textContent="আগে খসড়া তৈরি করো।";return}data.custom.push(...generatedDrafts);save();renderCustom();el("draftStatus").textContent=`${generatedDrafts.length}টি খসড়া প্রশ্নব্যাংকে যোগ হয়েছে। পরীক্ষা দেওয়ার আগে উত্তর যাচাই করো।`;};
+
+updateStats();renderCustom();
+</script>
+</body></html>
